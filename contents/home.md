@@ -1,16 +1,16 @@
 
 
-[![senli1073](https://img.shields.io/badge/senli1073-github-blue?logo=github)](https://github.com/senli1073)
+![Static Badge](https://img.shields.io/badge/Shuhao-github-blue?style=for-the-badge&logo=github&logoColor=black&logoSize=auto&label=Steve&labelColor=abcdef&color=white&cacheSeconds=3600&link=https%3A%2F%2Fgithub.com%2FSteve0ne)
 
-He is currently pursuing a Master's Degree in Computer Science, at School of Computer Science and Technology, China University of Mining and Technology, China.
+He is currently pursuing a master's degree in computer science at the School of Computer Science and Technology, Shandong University.
 
 #### Email
-sli[at]cumt.edu.cn
+<stev5[at]qq.com>
 
 #### Education
-M.E., Computer Science and Technology, China University of Mining and Technology, 2022—2025 (expected).\
-B.E., Data Science and Big Data Technology, China University of Mining and Technology, 2018—2022.
+M.E., Computer Science and Technology, Shandong University, 2024—2027 (expected).\
+B.E., Software Engineering, Jiangxi University of Finance and Economics, 2020—2024.
 
 #### Research Interests
-Deep Learning, Artificial Intelligence Seismology, Mine Microseismic.
+Blockchain, Distributed Computing.
 
