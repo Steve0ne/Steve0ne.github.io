@@ -1,646 +1,217 @@
 <!DOCTYPE html>
-<html lang='zh-CN'>
+<html lang="zh-CN">
 <head>
-  <meta charset='UTF-8' />
-  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <meta name='description' content='Shu Hao personal homepage' />
-  <title>Shu Hao | Blockchain and Distributed Computing</title>
-  <link rel='preconnect' href='https://fonts.googleapis.com' />
-  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-  <link href='https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap' rel='stylesheet' />
-  <style>
-    :root {
-      --bg: #070b16;
-      --card: rgba(15, 24, 44, 0.82);
-      --line: rgba(145, 213, 255, 0.28);
-      --text: #f3f8ff;
-      --muted: #9fb2c8;
-      --cyan: #53d8ff;
-      --teal: #2be7c5;
-      --orange: #ff9f43;
-      --shadow: 0 24px 60px rgba(2, 8, 22, 0.45);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif;
-      color: var(--text);
-      background: radial-gradient(circle at 15% 18%, #133b65 0%, transparent 40%),
-                  radial-gradient(circle at 82% 12%, #4f1f59 0%, transparent 34%),
-                  radial-gradient(circle at 77% 78%, #4e3322 0%, transparent 35%),
-                  var(--bg);
-      min-height: 100vh;
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-
-    #nebula {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      opacity: 0.6;
-    }
-
-    .noise {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      opacity: 0.08;
-      background-image: radial-gradient(#fff 0.5px, transparent 0.5px);
-      background-size: 3px 3px;
-      pointer-events: none;
-    }
-
-    .container {
-      width: min(1120px, 92vw);
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(120, 179, 239, 0.15);
-      background: rgba(7, 11, 22, 0.62);
-    }
-
-    .site-header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-    }
-
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 0.95rem;
-      color: #d9ebff;
-    }
-
-    .brand span {
-      color: var(--cyan);
-    }
-
-    .nav {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      color: #d9e7fb;
-      text-decoration: none;
-      font-size: 0.92rem;
-      opacity: 0.86;
-      transition: opacity 0.22s ease, color 0.22s ease;
-    }
-
-    .nav a:hover {
-      color: var(--cyan);
-      opacity: 1;
-    }
-
-    main section {
-      padding: 84px 0;
-    }
-
-    [data-reveal] {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    [data-reveal].shown {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hero {
-      padding-top: 96px;
-      padding-bottom: 72px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .hero-copy,
-    .hero-card,
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: linear-gradient(155deg, rgba(18, 30, 54, 0.9), rgba(11, 18, 33, 0.85));
-      box-shadow: var(--shadow);
-    }
-
-    .hero-copy {
-      padding: 40px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-copy::after {
-      content: '';
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(83, 216, 255, 0.28) 0%, rgba(83, 216, 255, 0) 70%);
-      right: -65px;
-      top: -90px;
-    }
-
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(97, 224, 205, 0.52);
-      background: rgba(43, 231, 197, 0.09);
-      color: #b8fff2;
-      font-size: 0.8rem;
-      margin-bottom: 20px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4.8vw, 3.45rem);
-      line-height: 1.12;
-      margin-bottom: 14px;
-      letter-spacing: -0.02em;
-    }
-
-    .subtitle {
-      color: #8fd6ff;
-      font-weight: 500;
-      font-size: clamp(1rem, 2.3vw, 1.24rem);
-      margin-bottom: 24px;
-    }
-
-    .summary {
-      color: var(--muted);
-      font-size: 1.02rem;
-      max-width: 58ch;
-    }
-
-    .hero-actions {
-      margin-top: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      text-decoration: none;
-      border-radius: 13px;
-      padding: 11px 16px;
-      font-weight: 600;
-      font-size: 0.94rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .btn.primary {
-      color: #031722;
-      background: linear-gradient(135deg, var(--cyan), var(--teal));
-      box-shadow: 0 10px 26px rgba(43, 231, 197, 0.3);
-    }
-
-    .btn.secondary {
-      color: #dbecff;
-      border: 1px solid rgba(159, 192, 235, 0.5);
-      background: rgba(12, 26, 45, 0.8);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero-card {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 18px;
-    }
-
-    .avatar-wrap {
-      width: min(320px, 100%);
-      border-radius: 20px;
-      padding: 7px;
-      background: linear-gradient(140deg, rgba(83, 216, 255, 0.62), rgba(255, 159, 67, 0.38));
-      margin: 0 auto;
-    }
-
-    .avatar-wrap img {
-      display: block;
-      width: 100%;
-      border-radius: 16px;
-      object-fit: cover;
-    }
-
-    .facts {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    .fact {
-      border: 1px solid rgba(154, 197, 234, 0.28);
-      border-radius: 12px;
-      padding: 11px 14px;
-      background: rgba(10, 17, 32, 0.7);
-      color: #c4d7eb;
-      font-size: 0.92rem;
-    }
-
-    .fact strong {
-      display: block;
-      color: #f0f7ff;
-      margin-bottom: 2px;
-      font-size: 0.95rem;
-    }
-
-    .section-title {
-      font-size: clamp(1.5rem, 3.2vw, 2.24rem);
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-
-    .section-desc {
-      color: var(--muted);
-      margin-bottom: 26px;
-      max-width: 70ch;
-    }
-
-    .panel {
-      padding: 28px;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .timeline {
-      list-style: none;
-      display: grid;
-      gap: 14px;
-    }
-
-    .timeline li {
-      padding: 14px 14px 14px 18px;
-      border-left: 2px solid rgba(83, 216, 255, 0.5);
-      background: rgba(9, 16, 29, 0.65);
-      border-radius: 10px;
-      color: #cfdeef;
-      font-size: 0.95rem;
-    }
-
-    .timeline li strong {
-      color: #f2f7ff;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(83, 216, 255, 0.45);
-      background: rgba(83, 216, 255, 0.09);
-      color: #c6f3ff;
-      font-size: 0.9rem;
-    }
-
-    .pub-card,
-    .award-list li {
-      border: 1px solid rgba(159, 201, 241, 0.26);
-      background: rgba(10, 18, 33, 0.74);
-      border-radius: 14px;
-    }
-
-    .pub-card {
-      padding: 22px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pub-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--cyan), var(--orange));
-    }
-
-    .pub-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-
-    .pub-card p {
-      color: #bdd0e4;
-      margin-bottom: 8px;
-    }
-
-    .pub-card .tag {
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: rgba(255, 159, 67, 0.16);
-      border: 1px solid rgba(255, 159, 67, 0.45);
-      color: #ffd6a8;
-      font-size: 0.82rem;
-    }
-
-    .award-list {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-
-    .award-list li {
-      padding: 14px 16px;
-      color: #d2e0f0;
-      font-size: 0.95rem;
-    }
-
-    .award-list strong {
-      color: #f4f8ff;
-    }
-
-    footer {
-      border-top: 1px solid rgba(147, 192, 230, 0.2);
-      padding: 28px 0 34px;
-      color: #9bb0c5;
-      font-size: 0.9rem;
-    }
-
-    .footer-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .footer-line a {
-      color: #b7e8ff;
-      text-decoration: none;
-    }
-
-    @media (max-width: 960px) {
-      .hero-grid,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy,
-      .hero-card,
-      .panel {
-        padding: 24px;
-      }
-
-      main section {
-        padding: 66px 0;
-      }
-
-      .site-header .container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .nav {
-        gap: 12px;
-      }
-
-      .nav a {
-        font-size: 0.86rem;
-      }
-
-      h1 {
-        font-size: 1.88rem;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="熊书豪的个人主页，聚焦 Java 后端、高并发系统与 AI 工程化实践。" />
+  <title>熊书豪 | Backend Engineer Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body>
-  <canvas id='nebula' aria-hidden='true'></canvas>
-  <div class='noise' aria-hidden='true'></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
 
-  <header class='site-header'>
-    <div class='container'>
-      <div class='brand'>Shu <span>Hao</span></div>
-      <nav class='nav'>
-        <a href='#home'>Home</a>
-        <a href='#about'>About</a>
-        <a href='#publications'>Publications</a>
-        <a href='#awards'>Awards</a>
-      </nav>
-    </div>
+  <header class="topbar">
+    <a class="brand" href="#home">XIONG.SHUHAO</a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#about">ABOUT</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#awards">AWARDS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
   </header>
 
   <main>
-    <section id='home' class='hero'>
-      <div class='container hero-grid'>
-        <article class='hero-copy' data-reveal>
-          <div class='kicker'>Personal Homepage · Academic Profile</div>
-          <h1>Shu Hao · 熊书豪</h1>
-          <p class='subtitle'>Blockchain and Distributed Computing</p>
-          <p class='summary'>
-            I am currently pursuing a master's degree in Computer Science at the School of Computer Science and Technology, Shandong University.
-            This site presents my research direction, background, and milestones in a cleaner and more modern way.
-          </p>
-          <div class='hero-actions'>
-            <a class='btn primary' href='https://github.com/Steve0ne' target='_blank' rel='noreferrer'>GitHub</a>
-            <a class='btn secondary' href='mailto:stev5@qq.com'>stev5[at]qq.com</a>
+    <section id="home" class="hero section">
+      <div class="container hero-layout">
+        <article class="hero-console reveal-up">
+          <div class="window-head">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="win-title">terminal://career/startup</span>
+          </div>
+          <div class="window-body" id="terminal-body">
+            <p><span class="prompt">steve@backend:~$</span> whoami</p>
+            <p class="strong">熊书豪 · 后端工程师（Java）</p>
+            <p><span class="prompt">steve@backend:~$</span> cat profile.txt</p>
+            <p>推免山东大学硕士，主攻高并发系统与 AI 工程化落地。</p>
+            <p class="cmd-line"><span class="prompt">steve@backend:~$</span> <span id="rotating-command">./boot --focus=distributed-systems</span></p>
+          </div>
+
+          <div class="hero-tags">
+            <span>Spring Boot</span>
+            <span>MySQL / Redis</span>
+            <span>RocketMQ</span>
+            <span>RAG / MCP</span>
+            <span>Vibe Coding</span>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">查看项目战绩</a>
+            <a class="btn btn-ghost" href="mailto:stev5@qq.com">stev5@qq.com</a>
           </div>
         </article>
 
-        <aside class='hero-card' data-reveal>
-          <div class='avatar-wrap'>
-            <img src='static/assets/img/photo.png' alt='Shu Hao portrait' />
-          </div>
-          <div class='facts'>
-            <div class='fact'>
-              <strong>Current Program</strong>
-              M.E. in Computer Science and Technology, Shandong University
-            </div>
-            <div class='fact'>
-              <strong>Expected Graduation</strong>
-              2027
-            </div>
-            <div class='fact'>
-              <strong>Focus</strong>
-              Blockchain, Distributed Computing
-            </div>
-          </div>
+        <aside class="hero-panel reveal-up delay-1">
+          <img class="avatar" src="./assets/img/profile.jpg" alt="熊书豪头像" />
+          <h1>熊书豪</h1>
+          <p class="headline">Backend Engineer / Java</p>
+          <ul class="quick-stats">
+            <li><span>硕士在读</span><strong>山东大学 (2024-2027)</strong></li>
+            <li><span>本科排名</span><strong>0.3% · 1/342</strong></li>
+            <li><span>实习状态</span><strong>一周到岗 · 可实习6个月</strong></li>
+            <li><span>联系</span><strong>13732949408</strong></li>
+          </ul>
+          <a class="github-link" href="https://github.com/Steve0ne" target="_blank" rel="noreferrer">github.com/Steve0ne</a>
         </aside>
       </div>
     </section>
 
-    <section id='about'>
-      <div class='container'>
-        <h2 class='section-title' data-reveal>About & Education</h2>
-        <p class='section-desc' data-reveal>
-          The new layout keeps your original core information while upgrading visual hierarchy, readability, and mobile experience.
-        </p>
-        <div class='about-grid'>
-          <article class='panel' data-reveal>
-            <h3 class='section-title' style='font-size:1.18rem;margin-bottom:14px;'>Education Timeline</h3>
-            <ul class='timeline'>
+    <section id="about" class="section">
+      <div class="container">
+        <div class="title-row reveal-up">
+          <p class="eyebrow">00 / ABOUT</p>
+          <h2>工程化思维 + 研究深度</h2>
+        </div>
+        <div class="panel-grid">
+          <article class="panel reveal-up">
+            <h3>教育轨迹</h3>
+            <ol class="timeline">
               <li>
-                <strong>M.E., Computer Science and Technology</strong>
-                Shandong University, 2024-2027 (expected).
+                <p class="time">2024.09 - 2027.06</p>
+                <p class="item-title">山东大学 · 计算机科学与技术（推免硕士）</p>
               </li>
               <li>
-                <strong>B.E., Software Engineering</strong>
-                Jiangxi University of Finance and Economics, 2020-2024.
+                <p class="time">2020.09 - 2024.06</p>
+                <p class="item-title">江西财经大学 · 软件工程（学士）</p>
               </li>
-            </ul>
+            </ol>
           </article>
-
-          <article class='panel' data-reveal>
-            <h3 class='section-title' style='font-size:1.18rem;margin-bottom:14px;'>Research Interests</h3>
-            <div class='chips'>
-              <span class='chip'>Blockchain</span>
-              <span class='chip'>Distributed Computing</span>
-              <span class='chip'>Consensus Protocols</span>
-              <span class='chip'>System Optimization</span>
+          <article class="panel reveal-up delay-1">
+            <h3>方向聚焦</h3>
+            <p class="desc">
+              长期关注区块链与分布式系统安全，擅长将传统后端架构与 AI 工作流结合，
+              在真实业务中验证性能、稳定性与研发效率提升。
+            </p>
+            <div class="pill-row">
+              <span>Distributed Systems</span>
+              <span>Blockchain</span>
+              <span>Prompt Engineering</span>
+              <span>System Optimization</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id='publications'>
-      <div class='container'>
-        <h2 class='section-title' data-reveal>Publications</h2>
-        <p class='section-desc' data-reveal>
-          Publication records will be continuously updated.
-        </p>
-        <article class='pub-card' data-reveal>
-          <h3>To Be Continued</h3>
-          <p>
-            Your original page lists this section as ongoing. The redesigned version keeps this state and reserves a clean card layout for upcoming papers.
-          </p>
-          <span class='tag'>Updating</span>
-        </article>
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="title-row reveal-up">
+          <p class="eyebrow">01 / SKILLS</p>
+          <h2>技术栈矩阵</h2>
+        </div>
+        <div class="skill-grid">
+          <article class="skill-card reveal-up">
+            <h3>Backend Core</h3>
+            <ul>
+              <li>Java 核心 / 集合 / 反射 / 动态代理 / SPI</li>
+              <li>JUC 并发 / CAS / AQS / ThreadPool / ThreadLocal</li>
+              <li>JVM 内存模型 / 类加载 / G1 GC</li>
+            </ul>
+          </article>
+          <article class="skill-card reveal-up delay-1">
+            <h3>Data & Middleware</h3>
+            <ul>
+              <li>MySQL 事务 / 索引 / 锁 / MVCC / 日志体系</li>
+              <li>Redis 持久化 / IO 模型 / 哨兵 / 高性能原理</li>
+              <li>RocketMQ 消息模型 / 刷盘机制 / 死信队列</li>
+            </ul>
+          </article>
+          <article class="skill-card reveal-up delay-2">
+            <h3>AI Engineering</h3>
+            <ul>
+              <li>Spring AI / RAG / MCP / 向量数据库</li>
+              <li>Langchain4j + Embedding + Pinecone 检索链路</li>
+              <li>AI CodeReview / AI 单测生成 / Vibe Coding 流程</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id='awards'>
-      <div class='container'>
-        <h2 class='section-title' data-reveal>Awards</h2>
-        <ul class='award-list'>
-          <li data-reveal><strong>National Scholarship (Undergraduate)</strong> · 2023</li>
-          <li data-reveal><strong>Corporate Scholarship (Undergraduate)</strong> · 2022</li>
-          <li data-reveal><strong>Corporate Scholarship (Undergraduate)</strong> · 2021</li>
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="title-row reveal-up">
+          <p class="eyebrow">02 / PROJECTS</p>
+          <h2>项目战绩</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card reveal-up">
+            <header>
+              <h3>蓝谷 AI 中心团队知识库</h3>
+              <p>Spring Boot / Langchain4j / Pinecone / Qwen-plus</p>
+            </header>
+            <ul>
+              <li>主导从 0 到 1 构建团队 RAG 知识库和 AI 协作流程。</li>
+              <li>通过查询重写 + 语义分块 + 混合检索，使 Top-3 命中率从 <strong>60% 提升至 92%</strong>。</li>
+              <li>引入 AI 单测与 AI CodeReview，核心模块单测覆盖率稳定在 <strong>85%+</strong>。</li>
+            </ul>
+          </article>
+          <article class="project-card reveal-up delay-1">
+            <header>
+              <h3>SDUER 秒杀二手商城</h3>
+              <p>Spring Boot / MySQL / Redis / RocketMQ / Caffeine</p>
+            </header>
+            <ul>
+              <li>基于 Redis + Lua 实现秒杀防超卖与一人一单。</li>
+              <li>使用 MQ 异步削峰与一致性补偿，将下单接口平均响应从 <strong>800ms 降至 50ms 内</strong>。</li>
+              <li>通过多级缓存与限流机制支撑高并发场景，保障核心服务稳定。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="section">
+      <div class="container">
+        <div class="title-row reveal-up">
+          <p class="eyebrow">03 / AWARDS</p>
+          <h2>荣誉与竞赛</h2>
+        </div>
+        <ul class="award-list reveal-up">
+          <li>国家奖学金</li>
+          <li>企业奖学金</li>
+          <li>优秀学生 / 优秀毕业生</li>
+          <li>ICPC 银牌</li>
+          <li>Robocom 机器人开发者大赛全国二等奖</li>
         </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container contact-box reveal-up">
+        <p class="eyebrow">04 / CONTACT</p>
+        <h2>欢迎交流技术与合作机会</h2>
+        <p>如果你正在寻找能快速进入业务并解决复杂后端问题的工程师，欢迎直接联系我。</p>
+        <div class="contact-links">
+          <a href="mailto:stev5@qq.com">邮箱：stev5@qq.com</a>
+          <a href="tel:13732949408">电话：13732949408</a>
+          <a href="https://github.com/Steve0ne" target="_blank" rel="noreferrer">GitHub：Steve0ne</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class='container footer-line'>
-      <span>&copy; Shu Hao 2024-2026. All Rights Reserved.</span>
-      <a href='https://github.com/Steve0ne' target='_blank' rel='noreferrer'>github.com/Steve0ne</a>
-    </div>
+  <footer class="footer">
+    <p>© <span id="year"></span> 熊书豪 · Built for geek-level clarity.</p>
   </footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('shown');
-        }
-      });
-    }, { threshold: 0.14 });
-
-    document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
-
-    const canvas = document.getElementById('nebula');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    const fit = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      const count = Math.min(90, Math.floor((canvas.width * canvas.height) / 22000));
-      particles = Array.from({ length: count }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        r: Math.random() * 1.5 + 0.5
-      }));
-    };
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(143, 214, 255, 0.75)';
-
-      particles.forEach((p, i) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const q = particles[j];
-          const dx = p.x - q.x;
-          const dy = p.y - q.y;
-          const d = Math.hypot(dx, dy);
-          if (d < 128) {
-            ctx.strokeStyle = `rgba(83, 216, 255, ${0.16 - d / 950})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.stroke();
-          }
-        }
-      });
-
-      requestAnimationFrame(draw);
-    };
-
-    window.addEventListener('resize', fit);
-    fit();
-    draw();
-  </script>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
