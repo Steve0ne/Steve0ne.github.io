@@ -11,25 +11,31 @@
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body>
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
-  <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+  <div class="bg-grid fx-heavy" aria-hidden="true"></div>
+  <div class="bg-noise fx-heavy" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-a fx-heavy" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-b fx-heavy" aria-hidden="true"></div>
+  <div class="bg-orbit orbit-a fx-heavy" aria-hidden="true"></div>
+  <div class="bg-orbit orbit-b fx-heavy" aria-hidden="true"></div>
 
   <header class="topbar">
     <a class="brand" href="#home">XIONG.SHUHAO</a>
-    <nav class="nav" aria-label="主导航">
-      <a href="#about">ABOUT</a>
-      <a href="#skills">SKILLS</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#awards">AWARDS</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
+    <div class="topbar-right">
+      <nav class="nav" aria-label="主导航">
+        <a href="#about">ABOUT</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#awards">AWARDS</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <button id="fx-toggle" class="fx-toggle" type="button" aria-pressed="false">FX: HIGH</button>
+    </div>
   </header>
 
   <main>
     <section id="home" class="hero section">
       <div class="container hero-layout">
-        <article class="hero-console reveal-up">
+        <article class="hero-console interactive-panel reveal-up" data-reveal="0">
           <div class="window-head">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
@@ -41,7 +47,23 @@
             <p class="strong">熊书豪 · 后端工程师（Java）</p>
             <p><span class="prompt">steve@backend:~$</span> cat profile.txt</p>
             <p>推免山东大学硕士，主攻高并发系统与 AI 工程化落地。</p>
-            <p class="cmd-line"><span class="prompt">steve@backend:~$</span> <span id="rotating-command">./boot --focus=distributed-systems</span></p>
+            <p class="signal-line"><span class="signal-pulse" aria-hidden="true"></span><span id="live-status">SYSTEM NOMINAL</span></p>
+            <p class="cmd-line"><span class="prompt">steve@backend:~$</span> <span id="rotating-command" class="fx-text-swap">./boot --focus=distributed-systems</span></p>
+          </div>
+
+          <div class="hero-metrics">
+            <article class="metric-block">
+              <p class="metric-label">Req Latency</p>
+              <p class="metric-value">~50ms</p>
+            </article>
+            <article class="metric-block">
+              <p class="metric-label">RAG Top-3 Hit</p>
+              <p class="metric-value">92%</p>
+            </article>
+            <article class="metric-block">
+              <p class="metric-label">Test Coverage</p>
+              <p class="metric-value">85%+</p>
+            </article>
           </div>
 
           <div class="hero-tags">
@@ -58,12 +80,14 @@
           </div>
         </article>
 
-        <aside class="hero-panel reveal-up delay-1">
+        <aside class="hero-panel interactive-panel reveal-up" data-reveal="120">
           <img class="avatar" src="./assets/img/profile.jpg" alt="熊书豪头像" />
           <h1>熊书豪</h1>
           <p class="headline">Backend Engineer / Java</p>
+          <p class="availability">Open to backend and AI engineering collaboration.</p>
           <ul class="quick-stats">
             <li><span>硕士在读</span><strong>山东大学 (2024-2027)</strong></li>
+            <li><span>核心方向</span><strong>分布式系统 / AI 工程化</strong></li>
             <li><span>公开联系</span><strong>邮箱 / GitHub</strong></li>
           </ul>
           <a class="github-link" href="https://github.com/Steve0ne" target="_blank" rel="noreferrer">github.com/Steve0ne</a>
@@ -73,12 +97,12 @@
 
     <section id="about" class="section">
       <div class="container">
-        <div class="title-row reveal-up">
+        <div class="title-row reveal-up" data-reveal="0">
           <p class="eyebrow">00 / ABOUT</p>
           <h2>工程化思维 + 研究深度</h2>
         </div>
         <div class="panel-grid">
-          <article class="panel reveal-up">
+          <article class="panel interactive-panel reveal-up" data-reveal="0">
             <h3>教育轨迹</h3>
             <ol class="timeline">
               <li>
@@ -91,7 +115,7 @@
               </li>
             </ol>
           </article>
-          <article class="panel reveal-up delay-1">
+          <article class="panel interactive-panel reveal-up" data-reveal="120">
             <h3>方向聚焦</h3>
             <p class="desc">
               长期关注区块链与分布式系统安全，擅长将传统后端架构与 AI 工作流结合，
@@ -110,12 +134,12 @@
 
     <section id="skills" class="section">
       <div class="container">
-        <div class="title-row reveal-up">
+        <div class="title-row reveal-up" data-reveal="0">
           <p class="eyebrow">01 / SKILLS</p>
           <h2>技术栈矩阵</h2>
         </div>
         <div class="skill-grid">
-          <article class="skill-card reveal-up">
+          <article class="skill-card interactive-panel reveal-up" data-reveal="0">
             <h3>Backend Core</h3>
             <ul>
               <li>Java 核心 / 集合 / 反射 / 动态代理 / SPI</li>
@@ -123,15 +147,15 @@
               <li>JVM 内存模型 / 类加载 / G1 GC</li>
             </ul>
           </article>
-          <article class="skill-card reveal-up delay-1">
-            <h3>Data & Middleware</h3>
+          <article class="skill-card interactive-panel reveal-up" data-reveal="100">
+            <h3>Data &amp; Middleware</h3>
             <ul>
               <li>MySQL 事务 / 索引 / 锁 / MVCC / 日志体系</li>
               <li>Redis 持久化 / IO 模型 / 哨兵 / 高性能原理</li>
               <li>RocketMQ 消息模型 / 刷盘机制 / 死信队列</li>
             </ul>
           </article>
-          <article class="skill-card reveal-up delay-2">
+          <article class="skill-card interactive-panel reveal-up" data-reveal="200">
             <h3>AI Engineering</h3>
             <ul>
               <li>Spring AI / RAG / MCP / 向量数据库</li>
@@ -145,12 +169,12 @@
 
     <section id="projects" class="section">
       <div class="container">
-        <div class="title-row reveal-up">
+        <div class="title-row reveal-up" data-reveal="0">
           <p class="eyebrow">02 / PROJECTS</p>
           <h2>项目战绩</h2>
         </div>
         <div class="project-grid">
-          <article class="project-card reveal-up">
+          <article class="project-card interactive-panel reveal-up" data-reveal="0">
             <header>
               <h3>蓝谷 AI 中心团队知识库</h3>
               <p>Spring Boot / Langchain4j / Pinecone / Qwen-plus</p>
@@ -161,7 +185,7 @@
               <li>引入 AI 单测与 AI CodeReview，核心模块单测覆盖率稳定在 <strong>85%+</strong>。</li>
             </ul>
           </article>
-          <article class="project-card reveal-up delay-1">
+          <article class="project-card interactive-panel reveal-up" data-reveal="120">
             <header>
               <h3>SDUER 秒杀二手商城</h3>
               <p>Spring Boot / MySQL / Redis / RocketMQ / Caffeine</p>
@@ -178,11 +202,11 @@
 
     <section id="awards" class="section">
       <div class="container">
-        <div class="title-row reveal-up">
+        <div class="title-row reveal-up" data-reveal="0">
           <p class="eyebrow">03 / AWARDS</p>
           <h2>荣誉与竞赛</h2>
         </div>
-        <ul class="award-list reveal-up">
+        <ul class="award-list interactive-panel reveal-up" data-reveal="80">
           <li>国家奖学金</li>
           <li>企业奖学金</li>
           <li>优秀学生 / 优秀毕业生</li>
@@ -193,7 +217,7 @@
     </section>
 
     <section id="contact" class="section contact">
-      <div class="container contact-box reveal-up">
+      <div class="container contact-box interactive-panel reveal-up" data-reveal="0">
         <p class="eyebrow">04 / CONTACT</p>
         <h2>欢迎交流技术与合作机会</h2>
         <p>如果你正在寻找能快速进入业务并解决复杂后端问题的工程师，欢迎直接联系我。</p>

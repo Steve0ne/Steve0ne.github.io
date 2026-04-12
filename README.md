@@ -1,69 +1,56 @@
+# 熊书豪个人主页（极客风改版）
 
+## 项目结构
 
-![Github Forks](https://img.shields.io/github/forks/senli1073/senli1073.github.io?style=flat)
-![Github Stars](https://img.shields.io/github/stars/senli1073/senli1073.github.io?style=flat)
-![License](https://img.shields.io/github/license/senli1073/senli1073.github.io)
-![Last Commit](https://img.shields.io/github/last-commit/senli1073/senli1073.github.io)
+- `index.html`：主页结构
+- `assets/css/styles.css`：视觉系统、分层动效、响应式样式
+- `assets/js/script.js`：滚动显隐、导航激活、动态状态与动效强度控制
 
-# A simple Github Pages template for academic personal website.
+## 本地预览
 
-## Preview
-[![Screenshot of the Website](https://raw.githubusercontent.com/senli1073/senli1073.github.io/main/screenshot_full.png)](https://senli1073.github.io/)
+在项目目录执行：
 
-
-## Introduction
-
-This is an academic personal website template based on [bootstrap](https://github.com/StartBootstrap/startbootstrap-new-age).
-
-The template is designed to integrate Markdown files as content input.  There's no need to compile the webpage before deployment.  Upon loading, the Markdown files are automatically parsed and embedded into the page.
-
-This template supports LaTeX formula input. You can use `$...$` and `\(...\)` as delimiters for inline-math, or use `$$...$$` and `\[...\]` as delimiters for display-math. Macros such as `\ref{...}`, `\eqref{...}`, and `\begin{equation}...\end{equation}` are also supported. See [MathJax](https://docs.mathjax.org/en/latest/index.html) for more details.
-
-:milky_way: Demo: https://senli1073.github.io/
-
-
-## Getting Start
-### 1. Fork this repository
-The repository name should be `<username>.github.io`, which will also be your website's URL.
-
-
-### 2. Edit page content
-
-(1) Go to the folder where you want to store your project, and clone the new repository:
-```
-git clone https://github.com/<username>/<username>.github.io.git
-```
-The directory structure is as follows:
-
-```.
-.
-├── contents
-└── static
-    ├── assets
-    │   └── img
-    ├── css
-    └── js
+```bash
+cd homepage
+python3 -m http.server 8080
 ```
 
-(2) Modify the content of each section, which corresponds to `contents/*.md`.
+浏览器打开 `http://localhost:8080`。
 
-(3) Adjust the title, copyright information, and other text of the website in `contents/config.yml`
+## 发布前检查清单
 
-(4) Replace background image and photo with new ones for your web pages in `static/assets/img/`
+发布前建议逐项确认：
 
-(5) Push it: 
+1. 首屏 3 秒内可识别姓名、方向和主行动按钮。
+2. 顶部导航锚点可跳转到 ABOUT/SKILLS/PROJECTS/AWARDS/CONTACT。
+3. 邮箱和 GitHub 外链可访问。
+4. 移动端（窄屏）无文本溢出，按钮可点击。
+5. `prefers-reduced-motion` 下持续动画可降级（系统减少动态效果时页面应变静态）。
+
+## 发布到 GitHub Pages
+
+1. 同步站点文件到 `Steve0ne.github.io` 仓库根目录（保留 `.git`）。
+2. 提交并推送：
+
+```bash
+git add -A
+git commit -m "feat: enhance homepage visuals and motion layering"
+git push origin main
 ```
-git commit -am 'init'
-git push
+
+3. 等待 GitHub Pages 发布后访问 `https://steve0ne.github.io/`。
+
+## 快速回滚（发布异常）
+
+若新版本上线后出现严重样式或交互问题，可快速回滚：
+
+```bash
+# 查看最近提交
+git log --oneline -n 5
+
+# 回退到上一个稳定提交（示例）
+git revert <bad_commit_sha>
+git push origin main
 ```
 
-
-### 3. Enjoy
-
-Fire up a browser and go to `https://<username>.github.io`
-
-
-
-## License
-
-Copyright Sen Li, 2023. Licensed under an MIT license. You can copy and mess with this template.
+如需回退多个提交，优先连续执行 `git revert` 生成回滚提交，避免改写远端历史。
