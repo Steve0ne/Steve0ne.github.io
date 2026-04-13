@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Stev5" />
+  <meta name="theme-color" content="#07090d" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="robots" content="index,follow" />
+  <meta
+    name="description"
+    content="Stev5 Journal: field notes, essays, and build logs on backend systems, practical AI engineering, and reliable delivery."
+  />
+  <link rel="canonical" href="https://steve0ne.github.io/journal/" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Stev5" />
+  <meta property="og:title" content="Journal | Stev5" />
+  <meta
+    property="og:description"
+    content="Stev5 Journal: field notes, essays, and build logs on backend systems, practical AI engineering, and reliable delivery."
+  />
+  <meta property="og:url" content="https://steve0ne.github.io/journal/" />
+  <meta property="og:image" content="https://steve0ne.github.io/assets/img/og-cover.svg" />
+  <meta property="og:image:alt" content="Stev5 journal social cover." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Journal | Stev5" />
+  <meta
+    name="twitter:description"
+    content="Stev5 Journal: field notes, essays, and build logs on backend systems, practical AI engineering, and reliable delivery."
+  />
+  <meta name="twitter:image" content="https://steve0ne.github.io/assets/img/og-cover.svg" />
+  <title>Journal | Stev5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="journal-page">
+  <div class="page-aura aura-a" aria-hidden="true"></div>
+  <div class="page-aura aura-b" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="../index.html">Stev5</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#work">Work</a>
+        <a class="is-active" aria-current="page" href="./">Journal</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="mailto:stev5@qq.com?subject=Resume%20Request">Request Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section journal-hero">
+      <div class="container">
+        <div class="journal-hero-copy reveal-up" data-reveal="0">
+          <p class="eyebrow">Stev5 Journal</p>
+          <h1>Field notes, essays, and build logs from the systems behind the work.</h1>
+          <p>
+            A growing archive on backend architecture, practical AI engineering, performance work,
+            and the operational discipline required to keep production systems calm.
+          </p>
+        </div>
+
+        <div class="journal-list">
+          <a class="journal-index-card reveal-up" data-reveal="80" href="./posts/quiet-systems-under-pressure.html">
+            <div>
+              <p class="journal-index-meta">Draft Essay · Systems · April 2026</p>
+              <h2>Designing systems that stay quiet under pressure</h2>
+              <p class="journal-index-summary">
+                A note on why queue boundaries, caching discipline, and simpler failure handling
+                usually outperform architecture that merely looks advanced.
+              </p>
+            </div>
+            <div class="journal-index-side">
+              <div>
+                <strong>6 min read</strong>
+                <span>On calm systems design</span>
+              </div>
+              <span>Open article</span>
+            </div>
+          </a>
+
+          <a class="journal-index-card reveal-up" data-reveal="140" href="./posts/ai-workflows-worth-keeping.html">
+            <div>
+              <p class="journal-index-meta">Field Note · AI Delivery · April 2026</p>
+              <h2>What I keep, and discard, from AI engineering workflows</h2>
+              <p class="journal-index-summary">
+                A working view on where retrieval, automated review, and test generation actually
+                improve delivery, and where they mainly create noise.
+              </p>
+            </div>
+            <div class="journal-index-side">
+              <div>
+                <strong>7 min read</strong>
+                <span>On useful AI integration</span>
+              </div>
+              <span>Open article</span>
+            </div>
+          </a>
+
+          <a class="journal-index-card reveal-up" data-reveal="200" href="./posts/latency-load-stability.html">
+            <div>
+              <p class="journal-index-meta">Lab Note · Performance · April 2026</p>
+              <h2>Latency, load, and the craft of making fast feel stable</h2>
+              <p class="journal-index-summary">
+                Notes from high-concurrency paths where response time, consistency, and operational
+                calm have to coexist instead of being optimized in isolation.
+              </p>
+            </div>
+            <div class="journal-index-side">
+              <div>
+                <strong>5 min read</strong>
+                <span>On performance as system behavior</span>
+              </div>
+              <span>Open article</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Stev5. Journal index.</p>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Stev5" />
+  <meta name="theme-color" content="#07090d" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="robots" content="index,follow" />
+  <meta
+    name="description"
+    content="Stev5 Journal: Latency, load, and the craft of making fast feel stable."
+  />
+  <link rel="canonical" href="https://steve0ne.github.io/journal/posts/latency-load-stability.html" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Stev5" />
+  <meta property="og:title" content="Latency, load, and the craft of making fast feel stable | Stev5" />
+  <meta
+    property="og:description"
+    content="Stev5 Journal: Latency, load, and the craft of making fast feel stable."
+  />
+  <meta property="og:url" content="https://steve0ne.github.io/journal/posts/latency-load-stability.html" />
+  <meta property="og:image" content="https://steve0ne.github.io/assets/img/og-cover.svg" />
+  <meta property="og:image:alt" content="Stev5 journal social cover." />
+  <meta property="article:author" content="Stev5" />
+  <meta property="article:section" content="Performance" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Latency, load, and the craft of making fast feel stable | Stev5" />
+  <meta
+    name="twitter:description"
+    content="Stev5 Journal: Latency, load, and the craft of making fast feel stable."
+  />
+  <meta name="twitter:image" content="https://steve0ne.github.io/assets/img/og-cover.svg" />
+  <title>Latency, load, and the craft of making fast feel stable | Stev5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body class="post-page">
+  <div class="page-aura aura-a" aria-hidden="true"></div>
+  <div class="page-aura aura-b" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="../../index.html">Stev5</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#work">Work</a>
+        <a class="is-active" aria-current="page" href="../index.html">Journal</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="mailto:stev5@qq.com?subject=Resume%20Request">Request Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-shell reveal-up" data-reveal="0">
+      <header class="post-header">
+        <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../index.html">Journal</a> / Performance</p>
+        <p class="post-meta">Lab Note · Performance · April 2026 · 5 min read</p>
+        <h1>Latency, load, and the craft of making fast feel stable</h1>
+        <p class="post-dek">
+          Fast is easy to claim and hard to trust. The systems that feel genuinely fast are usually
+          the ones whose latency profile remains understandable when traffic rises and contention
+          stops being theoretical.
+        </p>
+      </header>
+
+      <div class="post-body">
+        <p>
+          There is a useful distinction between low latency and stable latency. Low latency can be
+          a benchmark artifact. Stable latency is a property of the system under variation. It
+          accounts for queue behavior, cache misses, dependency slowdown, and the cost of state
+          transitions that only appear under pressure.
+        </p>
+
+        <p>
+          In high-concurrency paths, response time is often shaped less by raw compute and more by
+          contention management. If too many requests compete for the same inventory state, the
+          question stops being “How fast is the endpoint?” and becomes “Where is this system allowed
+          to say not yet?”
+        </p>
+
+        <h2>Latency is a systems property</h2>
+        <p>
+          I tend to think about latency as the visible surface of a deeper behavior model:
+        </p>
+
+        <ul>
+          <li>Concurrency control decides whether work proceeds, waits, or fails.</li>
+          <li>Queues decide how burst traffic is absorbed or deferred.</li>
+          <li>Caches decide whether repeated requests hit memory, storage, or coordination cost.</li>
+        </ul>
+
+        <p>
+          Once you look at the system this way, latency optimization becomes less about shaving
+          milliseconds in isolation and more about shaping how the system behaves when demand stops
+          being smooth.
+        </p>
+
+        <h2>Stable feels faster than fast</h2>
+        <p>
+          Users experience consistency before they experience theoretical peak performance. A system
+          that responds in 50ms most of the time and then collapses unpredictably at peak traffic
+          does not feel fast. It feels unreliable. A system that stays within an expected response
+          envelope, even while shedding or sequencing work, feels much better in practice.
+        </p>
+
+        <p>
+          That is why I care about pressure paths as much as happy paths. Good performance work is
+          not just about speed. It is about preserving confidence in how the system behaves when the
+          load is real.
+        </p>
+      </div>
+
+      <nav class="post-nav" aria-label="Post navigation">
+        <a href="../index.html">Back to Journal</a>
+        <a href="./ai-workflows-worth-keeping.html">Previous Article</a>
+        <a href="../../index.html#work">Selected Work</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Stev5. Journal article.</p>
+  </footer>
+
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>

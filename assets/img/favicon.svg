@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Stev5 favicon</title>
+  <desc id="desc">Dark premium square icon with the Stev5 monogram.</desc>
+  <defs>
+    <linearGradient id="bg" x1="28" x2="224" y1="24" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#121722"/>
+      <stop offset="1" stop-color="#05070b"/>
+    </linearGradient>
+    <linearGradient id="stroke" x1="44" x2="212" y1="34" y2="214" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5f7fb" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#93a5c7" stop-opacity="0.28"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(70 52) rotate(42) scale(176 140)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6d85b6" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#6d85b6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="256" height="256" rx="64" fill="url(#bg)"/>
+  <rect x="18" y="18" width="220" height="220" rx="50" fill="url(#glow)"/>
+  <rect x="24" y="24" width="208" height="208" rx="44" fill="none" stroke="url(#stroke)" stroke-width="2"/>
+  <path d="M81 104c0-18 15-31 37-31h32c6 0 11 5 11 11s-5 11-11 11h-31c-11 0-16 4-16 10 0 5 3 9 10 11l24 7c17 5 30 16 30 35 0 22-18 36-44 36H89c-6 0-11-5-11-11s5-11 11-11h34c13 0 22-5 22-13 0-6-4-10-13-13l-24-7c-18-5-27-17-27-34Z" fill="#f4f7fc"/>
+  <path d="M170 74h-18l-17 58c-2 7 3 14 10 14h22l-9 36 44-63c5-8 0-19-10-19h-23l1-26Z" fill="#9db0d1"/>
+</svg>

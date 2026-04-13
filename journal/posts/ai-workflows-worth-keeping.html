@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Stev5" />
+  <meta name="theme-color" content="#07090d" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="robots" content="index,follow" />
+  <meta
+    name="description"
+    content="Stev5 Journal: What I keep, and discard, from AI engineering workflows."
+  />
+  <link rel="canonical" href="https://steve0ne.github.io/journal/posts/ai-workflows-worth-keeping.html" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Stev5" />
+  <meta property="og:title" content="What I keep, and discard, from AI engineering workflows | Stev5" />
+  <meta
+    property="og:description"
+    content="Stev5 Journal: What I keep, and discard, from AI engineering workflows."
+  />
+  <meta property="og:url" content="https://steve0ne.github.io/journal/posts/ai-workflows-worth-keeping.html" />
+  <meta property="og:image" content="https://steve0ne.github.io/assets/img/og-cover.svg" />
+  <meta property="og:image:alt" content="Stev5 journal social cover." />
+  <meta property="article:author" content="Stev5" />
+  <meta property="article:section" content="AI Delivery" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What I keep, and discard, from AI engineering workflows | Stev5" />
+  <meta
+    name="twitter:description"
+    content="Stev5 Journal: What I keep, and discard, from AI engineering workflows."
+  />
+  <meta name="twitter:image" content="https://steve0ne.github.io/assets/img/og-cover.svg" />
+  <title>What I keep, and discard, from AI engineering workflows | Stev5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body class="post-page">
+  <div class="page-aura aura-a" aria-hidden="true"></div>
+  <div class="page-aura aura-b" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="../../index.html">Stev5</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#work">Work</a>
+        <a class="is-active" aria-current="page" href="../index.html">Journal</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="mailto:stev5@qq.com?subject=Resume%20Request">Request Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-shell reveal-up" data-reveal="0">
+      <header class="post-header">
+        <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../index.html">Journal</a> / AI Delivery</p>
+        <p class="post-meta">Field Note · AI Delivery · April 2026 · 7 min read</p>
+        <h1>What I keep, and discard, from AI engineering workflows</h1>
+        <p class="post-dek">
+          The useful part of AI engineering is narrower than the hype cycle suggests. The goal is
+          not to make engineering feel futuristic. The goal is to remove friction where reasoning,
+          retrieval, or repetitive drafting genuinely helps delivery.
+        </p>
+      </header>
+
+      <div class="post-body">
+        <p>
+          I have become increasingly skeptical of workflows that showcase model capability without
+          improving engineering clarity. A workflow that feels impressive in a demo but creates
+          review debt, noisy diffs, or brittle test suites is not leverage. It is just a different
+          kind of queue.
+        </p>
+
+        <p>
+          The patterns I keep are the ones that operate close to real engineering bottlenecks.
+          Retrieval helps when internal knowledge is fragmented and lookup cost is high. Automated
+          review helps when it raises obvious risk before a human reviewer spends time on it. Test
+          generation helps when it expands coverage in repetitive paths that engineers would
+          otherwise skip.
+        </p>
+
+        <h2>What survives contact with production</h2>
+        <ul>
+          <li>Retrieval pipelines that improve the quality of answers without hiding source context.</li>
+          <li>Review automation that points at concrete risks instead of generating generic praise.</li>
+          <li>Test assistance that accelerates coverage but still leaves engineers in charge of intent.</li>
+        </ul>
+
+        <p>
+          The common thread is that these workflows reduce time spent searching, restating, or
+          scaffolding. They do not replace technical judgment. In practice, the workflows that last
+          are the ones that are easy to audit and easy to turn off when they stop being useful.
+        </p>
+
+        <h2>What I discard</h2>
+        <p>
+          I discard anything that increases output volume faster than it increases signal. That
+          includes auto-generated code that nobody wants to maintain, test suites that pass without
+          proving behavior, and “AI-first” flows that mostly move confusion into a different layer
+          of the process.
+        </p>
+
+        <p>
+          Good AI engineering is quieter than it looks from the outside. It usually appears as
+          cleaner retrieval, faster review cycles, or more consistent coverage. The most valuable
+          outcome is not spectacle. It is better delivery with less drag.
+        </p>
+      </div>
+
+      <nav class="post-nav" aria-label="Post navigation">
+        <a href="../index.html">Back to Journal</a>
+        <a href="./quiet-systems-under-pressure.html">Previous Article</a>
+        <a href="./latency-load-stability.html">Next Article</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Stev5. Journal article.</p>
+  </footer>
+
+  <script src="../../assets/js/script.js"></script>
+</body>
+</html>

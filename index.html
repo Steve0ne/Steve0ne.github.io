@@ -1,236 +1,425 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="熊书豪的个人主页，聚焦 Java 后端、高并发系统与 AI 工程化实践。" />
-  <title>熊书豪 | Backend Engineer Console</title>
+  <meta name="author" content="Stev5" />
+  <meta name="theme-color" content="#07090d" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="robots" content="index,follow" />
+  <meta
+    name="description"
+    content="Stev5 personal homepage and journal on backend systems, practical AI engineering, selected work, and notes from the process."
+  />
+  <link rel="canonical" href="https://steve0ne.github.io/" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Stev5" />
+  <meta property="og:title" content="Stev5 | Personal Homepage &amp; Journal" />
+  <meta
+    property="og:description"
+    content="Stev5 personal homepage and journal on backend systems, practical AI engineering, selected work, and notes from the process."
+  />
+  <meta property="og:url" content="https://steve0ne.github.io/" />
+  <meta property="og:image" content="https://steve0ne.github.io/assets/img/og-cover.svg" />
+  <meta property="og:image:alt" content="Stev5 personal homepage and journal social cover." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stev5 | Personal Homepage &amp; Journal" />
+  <meta
+    name="twitter:description"
+    content="Stev5 personal homepage and journal on backend systems, practical AI engineering, selected work, and notes from the process."
+  />
+  <meta name="twitter:image" content="https://steve0ne.github.io/assets/img/og-cover.svg" />
+  <title>Stev5 | Personal Homepage &amp; Journal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body>
-  <div class="bg-grid fx-heavy" aria-hidden="true"></div>
-  <div class="bg-noise fx-heavy" aria-hidden="true"></div>
-  <div class="bg-glow bg-glow-a fx-heavy" aria-hidden="true"></div>
-  <div class="bg-glow bg-glow-b fx-heavy" aria-hidden="true"></div>
-  <div class="bg-orbit orbit-a fx-heavy" aria-hidden="true"></div>
-  <div class="bg-orbit orbit-b fx-heavy" aria-hidden="true"></div>
+  <div class="page-aura aura-a" aria-hidden="true"></div>
+  <div class="page-aura aura-b" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <a class="brand" href="#home">XIONG.SHUHAO</a>
-    <div class="topbar-right">
-      <nav class="nav" aria-label="主导航">
-        <a href="#about">ABOUT</a>
-        <a href="#skills">SKILLS</a>
-        <a href="#projects">PROJECTS</a>
-        <a href="#awards">AWARDS</a>
-        <a href="#contact">CONTACT</a>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#top">Stev5</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="./journal/">Journal</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#background">Background</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <button id="fx-toggle" class="fx-toggle" type="button" aria-pressed="false">FX: HIGH</button>
+      <a class="nav-cta" href="mailto:stev5@qq.com?subject=Resume%20Request">Request Resume</a>
     </div>
   </header>
 
-  <main>
-    <section id="home" class="hero section">
-      <div class="container hero-layout">
-        <article class="hero-console interactive-panel reveal-up" data-reveal="0">
-          <div class="window-head">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="win-title">terminal://career/startup</span>
-          </div>
-          <div class="window-body" id="terminal-body">
-            <p><span class="prompt">steve@backend:~$</span> whoami</p>
-            <p class="strong">熊书豪 · 后端工程师（Java）</p>
-            <p><span class="prompt">steve@backend:~$</span> cat profile.txt</p>
-            <p>推免山东大学硕士，主攻高并发系统与 AI 工程化落地。</p>
-            <p class="signal-line"><span class="signal-pulse" aria-hidden="true"></span><span id="live-status">SYSTEM NOMINAL</span></p>
-            <p class="cmd-line"><span class="prompt">steve@backend:~$</span> <span id="rotating-command" class="fx-text-swap">./boot --focus=distributed-systems</span></p>
+  <main id="top">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal-up" data-reveal="0">
+          <p class="eyebrow">Personal Homepage / Journal</p>
+          <h1 class="hero-title">Stev5</h1>
+          <p class="hero-lead">
+            Personal homepage, journal, and selected systems work on backend architecture,
+            practical AI engineering, and the quiet discipline of reliable delivery.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">View Selected Work</a>
+            <a class="btn btn-secondary" href="./journal/">Read Journal Notes</a>
           </div>
 
-          <div class="hero-metrics">
-            <article class="metric-block">
-              <p class="metric-label">Req Latency</p>
-              <p class="metric-value">~50ms</p>
+          <div class="proof-grid" aria-label="Selected proof points">
+            <article class="proof-card">
+              <p class="proof-value">50ms</p>
+              <p class="proof-label">avg response on the core ordering path</p>
             </article>
-            <article class="metric-block">
-              <p class="metric-label">RAG Top-3 Hit</p>
-              <p class="metric-value">92%</p>
+            <article class="proof-card">
+              <p class="proof-value">92%</p>
+              <p class="proof-label">top-3 retrieval hit rate after retrieval tuning</p>
             </article>
-            <article class="metric-block">
-              <p class="metric-label">Test Coverage</p>
-              <p class="metric-value">85%+</p>
+            <article class="proof-card">
+              <p class="proof-value">85%+</p>
+              <p class="proof-label">coverage on core modules with AI-assisted testing</p>
             </article>
           </div>
+        </div>
 
-          <div class="hero-tags">
-            <span>Spring Boot</span>
-            <span>MySQL / Redis</span>
-            <span>RocketMQ</span>
-            <span>RAG / MCP</span>
-            <span>Vibe Coding</span>
-          </div>
-
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#projects">查看项目战绩</a>
-            <a class="btn btn-ghost" href="mailto:stev5@qq.com">stev5@qq.com</a>
-          </div>
-        </article>
-
-        <aside class="hero-panel interactive-panel reveal-up" data-reveal="120">
-          <img class="avatar" src="./assets/img/profile.jpg" alt="熊书豪头像" />
-          <h1>熊书豪</h1>
-          <p class="headline">Backend Engineer / Java</p>
-          <p class="availability">Open to backend and AI engineering collaboration.</p>
-          <ul class="quick-stats">
-            <li><span>硕士在读</span><strong>山东大学 (2024-2027)</strong></li>
-            <li><span>核心方向</span><strong>分布式系统 / AI 工程化</strong></li>
-            <li><span>公开联系</span><strong>邮箱 / GitHub</strong></li>
+        <aside class="hero-note reveal-up" data-reveal="120">
+          <p class="note-label">From The Journal</p>
+          <h2>Working notes on systems that hold up.</h2>
+          <p class="note-copy">
+            A running notebook on reliability, system behavior under pressure, and what remains
+            useful when the noise around tooling fades out.
+          </p>
+          <ul class="note-list">
+            <li>Latency, load, and the craft of stable response paths</li>
+            <li>Practical AI engineering beyond demo-driven workflows</li>
+            <li>Architecture notes from systems that have to keep operating</li>
           </ul>
-          <a class="github-link" href="https://github.com/Steve0ne" target="_blank" rel="noreferrer">github.com/Steve0ne</a>
         </aside>
+      </div>
+
+      <div class="container reveal-up" data-reveal="180">
+        <div class="logo-band" aria-label="Core technologies">
+          <div class="logo-marquee">
+            <div class="logo-track">
+              <div class="logo-pill">
+                <img src="./assets/img/logos/openjdk.svg" alt="Java logo" />
+                <span>Java</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/springboot.svg" alt="Spring Boot logo" />
+                <span>Spring Boot</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/mysql.svg" alt="MySQL logo" />
+                <span>MySQL</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/redis.svg" alt="Redis logo" />
+                <span>Redis</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/apacherocketmq.svg" alt="Apache RocketMQ logo" />
+                <span>RocketMQ</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/langchain.svg" alt="LangChain logo" />
+                <span>LangChain</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/docker.svg" alt="Docker logo" />
+                <span>Docker</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/github.svg" alt="GitHub logo" />
+                <span>GitHub</span>
+              </div>
+            </div>
+
+            <div class="logo-track" aria-hidden="true">
+              <div class="logo-pill">
+                <img src="./assets/img/logos/openjdk.svg" alt="" />
+                <span>Java</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/springboot.svg" alt="" />
+                <span>Spring Boot</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/mysql.svg" alt="" />
+                <span>MySQL</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/redis.svg" alt="" />
+                <span>Redis</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/apacherocketmq.svg" alt="" />
+                <span>RocketMQ</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/langchain.svg" alt="" />
+                <span>LangChain</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/docker.svg" alt="" />
+                <span>Docker</span>
+              </div>
+              <div class="logo-pill">
+                <img src="./assets/img/logos/github.svg" alt="" />
+                <span>GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <div class="title-row reveal-up" data-reveal="0">
-          <p class="eyebrow">00 / ABOUT</p>
-          <h2>工程化思维 + 研究深度</h2>
+    <section id="work" class="section section-emphasis">
+      <div class="container work-shell">
+        <div class="section-heading reveal-up" data-reveal="0">
+          <p class="section-label">Selected Work</p>
+          <h2>Two systems that improved reliability, throughput, and engineering speed.</h2>
+          <p class="section-intro">
+            A focused selection of work that best represents how I approach architecture,
+            performance, and delivery in production environments.
+          </p>
         </div>
-        <div class="panel-grid">
-          <article class="panel interactive-panel reveal-up" data-reveal="0">
-            <h3>教育轨迹</h3>
-            <ol class="timeline">
-              <li>
-                <p class="time">2024.09 - 2027.06</p>
-                <p class="item-title">山东大学 · 计算机科学与技术（推免硕士）</p>
-              </li>
-              <li>
-                <p class="time">2020.09 - 2024.06</p>
-                <p class="item-title">江西财经大学 · 软件工程（学士）</p>
-              </li>
-            </ol>
+
+        <div class="case-grid">
+          <article class="case-card reveal-up" data-reveal="0">
+            <div class="case-content">
+              <p class="case-kicker">Knowledge Infrastructure</p>
+              <h3>AI team knowledge platform built for production use</h3>
+              <p class="case-summary">
+                Designed and delivered a Spring Boot based knowledge system that turned fragmented
+                internal material into an AI-assisted workflow teams could actually rely on.
+              </p>
+
+              <div class="case-logos" aria-label="Technologies used in the knowledge platform">
+                <span class="case-logo">
+                  <img src="./assets/img/logos/springboot.svg" alt="Spring Boot logo" />
+                  <span>Spring Boot</span>
+                </span>
+                <span class="case-logo">
+                  <img src="./assets/img/logos/langchain.svg" alt="LangChain logo" />
+                  <span>LangChain</span>
+                </span>
+                <span class="case-logo">
+                  <img src="./assets/img/logos/openjdk.svg" alt="Java logo" />
+                  <span>Java</span>
+                </span>
+              </div>
+
+              <ul class="case-list">
+                <li>Reworked retrieval with query rewriting, semantic chunking, and hybrid search.</li>
+                <li>Introduced AI-assisted review and test generation into the delivery loop.</li>
+              </ul>
+            </div>
+
+            <div class="case-result">
+              <p class="result-value">92%</p>
+              <p class="result-label">top-3 retrieval hit rate after system tuning</p>
+            </div>
           </article>
-          <article class="panel interactive-panel reveal-up" data-reveal="120">
-            <h3>方向聚焦</h3>
-            <p class="desc">
-              长期关注区块链与分布式系统安全，擅长将传统后端架构与 AI 工作流结合，
-              在真实业务中验证性能、稳定性与研发效率提升。
-            </p>
-            <div class="pill-row">
-              <span>Distributed Systems</span>
-              <span>Blockchain</span>
-              <span>Prompt Engineering</span>
-              <span>System Optimization</span>
+
+          <article class="case-card reveal-up" data-reveal="120">
+            <div class="case-content">
+              <p class="case-kicker">High-Concurrency Commerce</p>
+              <h3>Flash-sale ordering flow engineered for stable peak traffic</h3>
+              <p class="case-summary">
+                Built an order pipeline that used traffic shaping, consistency controls, and
+                multi-level caching to keep the user path responsive under burst load.
+              </p>
+
+              <div class="case-logos" aria-label="Technologies used in the commerce system">
+                <span class="case-logo">
+                  <img src="./assets/img/logos/mysql.svg" alt="MySQL logo" />
+                  <span>MySQL</span>
+                </span>
+                <span class="case-logo">
+                  <img src="./assets/img/logos/redis.svg" alt="Redis logo" />
+                  <span>Redis</span>
+                </span>
+                <span class="case-logo">
+                  <img src="./assets/img/logos/apacherocketmq.svg" alt="Apache RocketMQ logo" />
+                  <span>RocketMQ</span>
+                </span>
+              </div>
+
+              <ul class="case-list">
+                <li>Used Redis and Lua to protect inventory and enforce one-order-per-user rules.</li>
+                <li>Smoothed burst traffic with asynchronous processing and consistency recovery.</li>
+              </ul>
+            </div>
+
+            <div class="case-result">
+              <p class="result-value">50ms</p>
+              <p class="result-label">average response after queue-based peak shaving</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="skills" class="section">
+    <section id="journal" class="section">
       <div class="container">
-        <div class="title-row reveal-up" data-reveal="0">
-          <p class="eyebrow">01 / SKILLS</p>
-          <h2>技术栈矩阵</h2>
+        <div class="section-head-row reveal-up" data-reveal="0">
+          <div class="section-heading narrow">
+            <p class="section-label">Journal</p>
+            <h2>A developing archive of field notes and system essays.</h2>
+            <p class="section-intro">
+              Ongoing writing and field notes on backend architecture, practical AI integration, and
+              the discipline required to keep production systems calm.
+            </p>
+          </div>
+          <a class="section-link" href="./journal/">Open Journal</a>
         </div>
-        <div class="skill-grid">
-          <article class="skill-card interactive-panel reveal-up" data-reveal="0">
-            <h3>Backend Core</h3>
-            <ul>
-              <li>Java 核心 / 集合 / 反射 / 动态代理 / SPI</li>
-              <li>JUC 并发 / CAS / AQS / ThreadPool / ThreadLocal</li>
-              <li>JVM 内存模型 / 类加载 / G1 GC</li>
-            </ul>
+
+        <div class="journal-grid">
+          <a class="journal-card reveal-up" data-reveal="0" href="./journal/posts/quiet-systems-under-pressure.html">
+            <p class="journal-meta">Draft Essay · Systems</p>
+            <h3>Designing systems that stay quiet under pressure</h3>
+            <p>
+              Why queue shaping, cache boundaries, and operational simplicity usually matter more
+              than visibly complicated architecture.
+            </p>
+            <p class="journal-foot">Archive in progress</p>
+          </a>
+
+          <a class="journal-card reveal-up" data-reveal="100" href="./journal/posts/ai-workflows-worth-keeping.html">
+            <p class="journal-meta">Field Note · AI Delivery</p>
+            <h3>What I keep, and discard, from AI engineering workflows</h3>
+            <p>
+              A working view on retrieval, automated review, and test generation when the goal is
+              better delivery instead of better demos.
+            </p>
+            <p class="journal-foot">Archive in progress</p>
+          </a>
+
+          <a class="journal-card reveal-up" data-reveal="200" href="./journal/posts/latency-load-stability.html">
+            <p class="journal-meta">Lab Note · Performance</p>
+            <h3>Latency, load, and the craft of making fast feel stable</h3>
+            <p>
+              Notes from building high-concurrency paths where response time, consistency, and
+              operational calm all have to coexist.
+            </p>
+            <p class="journal-foot">Archive in progress</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities" class="section">
+      <div class="container">
+        <div class="section-heading narrow reveal-up" data-reveal="0">
+          <p class="section-label">Capabilities</p>
+          <h2>Engineering that favors clarity, resilience, and real delivery.</h2>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability-card reveal-up" data-reveal="0">
+            <p class="card-index">01</p>
+            <h3>Backend Architecture</h3>
+            <p class="capability-copy">
+              Designing service boundaries, API flows, and delivery paths that stay understandable
+              as systems grow.
+            </p>
           </article>
-          <article class="skill-card interactive-panel reveal-up" data-reveal="100">
-            <h3>Data &amp; Middleware</h3>
-            <ul>
-              <li>MySQL 事务 / 索引 / 锁 / MVCC / 日志体系</li>
-              <li>Redis 持久化 / IO 模型 / 哨兵 / 高性能原理</li>
-              <li>RocketMQ 消息模型 / 刷盘机制 / 死信队列</li>
-            </ul>
+
+          <article class="capability-card reveal-up" data-reveal="100">
+            <p class="card-index">02</p>
+            <h3>Performance &amp; Concurrency</h3>
+            <p class="capability-copy">
+              Optimizing critical request paths, handling burst traffic, and controlling failure
+              modes under pressure.
+            </p>
           </article>
-          <article class="skill-card interactive-panel reveal-up" data-reveal="200">
-            <h3>AI Engineering</h3>
-            <ul>
-              <li>Spring AI / RAG / MCP / 向量数据库</li>
-              <li>Langchain4j + Embedding + Pinecone 检索链路</li>
-              <li>AI CodeReview / AI 单测生成 / Vibe Coding 流程</li>
+
+          <article class="capability-card reveal-up" data-reveal="200">
+            <p class="card-index">03</p>
+            <h3>AI-Enabled Engineering</h3>
+            <p class="capability-copy">
+              Applying retrieval, automated review, and test generation where they improve real
+              engineering throughput.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="background" class="section">
+      <div class="container background-layout">
+        <div class="background-intro reveal-up" data-reveal="0">
+          <p class="section-label">Background</p>
+          <h2>Systems thinking shaped by engineering discipline and competitive problem solving.</h2>
+          <p class="background-copy">
+            Currently focused on distributed systems, high-concurrency services, and practical AI
+            integration for teams that care about stable execution.
+          </p>
+
+          <div class="trust-list">
+            <span>National Scholarship Recipient</span>
+            <span>ICPC Silver Medalist</span>
+            <span>Resume Available on Request</span>
+          </div>
+        </div>
+
+        <div class="credential-grid">
+          <article class="credential-card reveal-up" data-reveal="80">
+            <p class="credential-label">Education</p>
+            <div class="credential-item">
+              <span>M.S. Candidate in Computer Science</span>
+              <strong>Shandong University · 2024–2027</strong>
+            </div>
+            <div class="credential-item">
+              <span>B.Eng. in Software Engineering</span>
+              <strong>Jiangxi University of Finance and Economics · 2020–2024</strong>
+            </div>
+          </article>
+
+          <article class="credential-card reveal-up" data-reveal="160">
+            <p class="credential-label">Recognition</p>
+            <ul class="credential-list">
+              <li>National Scholarship Recipient</li>
+              <li>Enterprise Scholarship Recipient</li>
+              <li>ICPC Silver Medalist</li>
+              <li>National Second Prize, Robocom Developer Competition</li>
+              <li>Outstanding Graduate</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="contact" class="section contact-section">
       <div class="container">
-        <div class="title-row reveal-up" data-reveal="0">
-          <p class="eyebrow">02 / PROJECTS</p>
-          <h2>项目战绩</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card interactive-panel reveal-up" data-reveal="0">
-            <header>
-              <h3>蓝谷 AI 中心团队知识库</h3>
-              <p>Spring Boot / Langchain4j / Pinecone / Qwen-plus</p>
-            </header>
-            <ul>
-              <li>主导从 0 到 1 构建团队 RAG 知识库和 AI 协作流程。</li>
-              <li>通过查询重写 + 语义分块 + 混合检索，使 Top-3 命中率从 <strong>60% 提升至 92%</strong>。</li>
-              <li>引入 AI 单测与 AI CodeReview，核心模块单测覆盖率稳定在 <strong>85%+</strong>。</li>
-            </ul>
-          </article>
-          <article class="project-card interactive-panel reveal-up" data-reveal="120">
-            <header>
-              <h3>SDUER 秒杀二手商城</h3>
-              <p>Spring Boot / MySQL / Redis / RocketMQ / Caffeine</p>
-            </header>
-            <ul>
-              <li>基于 Redis + Lua 实现秒杀防超卖与一人一单。</li>
-              <li>使用 MQ 异步削峰与一致性补偿，将下单接口平均响应从 <strong>800ms 降至 50ms 内</strong>。</li>
-              <li>通过多级缓存与限流机制支撑高并发场景，保障核心服务稳定。</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
+        <article class="contact-panel reveal-up" data-reveal="0">
+          <p class="section-label">Contact</p>
+          <h2>Building backend infrastructure, high-concurrency services, or practical AI systems?</h2>
+          <p class="contact-copy">
+            Let&apos;s talk about work that values reliability, performance, and disciplined
+            execution.
+          </p>
 
-    <section id="awards" class="section">
-      <div class="container">
-        <div class="title-row reveal-up" data-reveal="0">
-          <p class="eyebrow">03 / AWARDS</p>
-          <h2>荣誉与竞赛</h2>
-        </div>
-        <ul class="award-list interactive-panel reveal-up" data-reveal="80">
-          <li>国家奖学金</li>
-          <li>企业奖学金</li>
-          <li>优秀学生 / 优秀毕业生</li>
-          <li>ICPC 银牌</li>
-          <li>Robocom 机器人开发者大赛全国二等奖</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact">
-      <div class="container contact-box interactive-panel reveal-up" data-reveal="0">
-        <p class="eyebrow">04 / CONTACT</p>
-        <h2>欢迎交流技术与合作机会</h2>
-        <p>如果你正在寻找能快速进入业务并解决复杂后端问题的工程师，欢迎直接联系我。</p>
-        <div class="contact-links">
-          <a href="mailto:stev5@qq.com">邮箱：stev5@qq.com</a>
-          <a href="https://github.com/Steve0ne" target="_blank" rel="noreferrer">GitHub：Steve0ne</a>
-        </div>
+          <div class="contact-links">
+            <a href="mailto:stev5@qq.com">stev5@qq.com</a>
+            <a href="https://github.com/Steve0ne" target="_blank" rel="noreferrer">github.com/Steve0ne</a>
+            <a href="mailto:stev5@qq.com?subject=Resume%20Request">Request Resume</a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> 熊书豪 · Built for geek-level clarity.</p>
+    <p>© <span id="year"></span> Stev5. Personal homepage and journal.</p>
   </footer>
 
   <script src="./assets/js/script.js"></script>

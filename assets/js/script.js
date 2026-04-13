@@ -1,43 +1,8 @@
 const root = document.documentElement;
 const revealElements = document.querySelectorAll('.reveal-up');
 const sectionElements = document.querySelectorAll('main section[id]');
-const navLinks = document.querySelectorAll('.nav a');
-const commandNode = document.getElementById('rotating-command');
-const statusNode = document.getElementById('live-status');
-const fxToggle = document.getElementById('fx-toggle');
+const navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
 const reducedMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-const bootCommands = [
-  './boot --focus=distributed-systems',
-  './benchmark --target=high-concurrency',
-  './rag sync --top3-hit=92%',
-  './review --ai --coverage=85%+'
-];
-
-const liveStatuses = [
-  'SYSTEM NOMINAL',
-  'QUEUE STABLE',
-  'PIPELINE GREEN',
-  'DEPLOY READY'
-];
-
-let commandIndex = 0;
-let statusIndex = 0;
-
-function applyFXState(mode) {
-  const muted = mode === 'low';
-  document.body.classList.toggle('fx-muted', muted);
-  fxToggle?.setAttribute('aria-pressed', String(muted));
-  if (fxToggle) {
-    fxToggle.textContent = muted ? 'FX: LOW' : 'FX: HIGH';
-  }
-}
-
-function loadFXPreference() {
-  const saved = window.localStorage.getItem('fx-level');
-  const fallback = reducedMotionMedia.matches ? 'low' : 'high';
-  applyFXState(saved === 'low' ? 'low' : fallback);
-}
 
 function updateRevealDelays() {
   revealElements.forEach((element) => {
@@ -60,7 +25,10 @@ function setupRevealObserver() {
         currentObserver.unobserve(entry.target);
       });
     },
-    { threshold: 0.16 }
+    {
+      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.18
+    }
   );
 
   revealElements.forEach((element) => observer.observe(element));
@@ -74,14 +42,16 @@ function setupSectionObserver() {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const id = entry.target.getAttribute('id');
+
         navLinks.forEach((link) => {
           const active = link.getAttribute('href') === `#${id}`;
           link.classList.toggle('is-active', active);
+          link.setAttribute('aria-current', active ? 'true' : 'false');
         });
       });
     },
     {
-      rootMargin: '-38% 0px -45% 0px',
+      rootMargin: '-35% 0px -48% 0px',
       threshold: 0.15
     }
   );
@@ -89,36 +59,25 @@ function setupSectionObserver() {
   sectionElements.forEach((section) => observer.observe(section));
 }
 
-function updateTextNode(node, value) {
-  if (!node) return;
-  node.classList.add('is-updating');
-  window.setTimeout(() => {
-    node.textContent = value;
-    node.classList.remove('is-updating');
-  }, 140);
+function setupYear() {
+  const yearNode = document.getElementById('year');
+  if (yearNode) {
+    yearNode.textContent = String(new Date().getFullYear());
+  }
 }
 
-function setupDynamicText() {
-  if (reducedMotionMedia.matches) return;
+function setupScrollDepth() {
+  if (reducedMotionMedia.matches) {
+    root.style.setProperty('--scroll-depth', '0');
+    return;
+  }
 
-  window.setInterval(() => {
-    commandIndex = (commandIndex + 1) % bootCommands.length;
-    updateTextNode(commandNode, bootCommands[commandIndex]);
-  }, 2600);
-
-  window.setInterval(() => {
-    statusIndex = (statusIndex + 1) % liveStatuses.length;
-    statusNode.textContent = liveStatuses[statusIndex];
-  }, 3200);
-}
-
-function setupScrollRatio() {
   let ticking = false;
 
   function update() {
-    const maxScrollable = Math.max(document.body.scrollHeight - window.innerHeight, 1);
+    const maxScrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
     const ratio = Math.min(Math.max(window.scrollY / maxScrollable, 0), 1);
-    root.style.setProperty('--scroll-ratio', ratio.toFixed(4));
+    root.style.setProperty('--scroll-depth', ratio.toFixed(4));
     ticking = false;
   }
 
@@ -135,38 +94,8 @@ function setupScrollRatio() {
   update();
 }
 
-function setupFXToggle() {
-  if (!fxToggle) return;
-
-  fxToggle.addEventListener('click', () => {
-    const muted = document.body.classList.contains('fx-muted');
-    const nextMode = muted ? 'high' : 'low';
-    applyFXState(nextMode);
-    window.localStorage.setItem('fx-level', nextMode);
-  });
-}
-
-function setupReducedMotionListener() {
-  reducedMotionMedia.addEventListener('change', (event) => {
-    const stored = window.localStorage.getItem('fx-level');
-    if (stored) return;
-    applyFXState(event.matches ? 'low' : 'high');
-  });
-}
-
-function setupYear() {
-  const yearNode = document.getElementById('year');
-  if (yearNode) {
-    yearNode.textContent = String(new Date().getFullYear());
-  }
-}
-
-loadFXPreference();
 updateRevealDelays();
 setupRevealObserver();
 setupSectionObserver();
-setupDynamicText();
-setupScrollRatio();
-setupFXToggle();
-setupReducedMotionListener();
+setupScrollDepth();
 setupYear();

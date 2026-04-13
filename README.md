@@ -1,56 +1,103 @@
-# 熊书豪个人主页（极客风改版）
+# Stev5 Personal Homepage & Journal
 
-## 项目结构
+A static GitHub Pages site for `Stev5`, built as a dark, premium personal homepage and journal focused on backend systems, practical AI engineering, selected work, and field notes from real delivery.
 
-- `index.html`：主页结构
-- `assets/css/styles.css`：视觉系统、分层动效、响应式样式
-- `assets/js/script.js`：滚动显隐、导航激活、动态状态与动效强度控制
+## Overview
 
-## 本地预览
+- Static stack: `HTML + CSS + JavaScript`
+- Primary entry: `index.html`
+- Journal hub: `journal/index.html`
+- Deployment target: GitHub Pages from the repository root
 
-在项目目录执行：
+## Project Structure
+
+- `index.html`: homepage and selected work
+- `journal/`: journal index and article pages
+- `assets/css/styles.css`: shared visual system, layout, and motion
+- `assets/js/script.js`: reveal effects, section state, year sync, and reduced-motion support
+- `assets/img/logos/`: curated technology logos used on the homepage
+- `assets/img/favicon.svg`: site favicon
+- `assets/img/og-cover.svg`: social sharing cover
+- `assets/site.webmanifest`: site manifest
+
+## Local Preview
+
+Run the site from the repository root:
 
 ```bash
-cd homepage
 python3 -m http.server 8080
 ```
 
-浏览器打开 `http://localhost:8080`。
+Then open [http://localhost:8080](http://localhost:8080).
 
-## 发布前检查清单
+## Publishing To GitHub Pages
 
-发布前建议逐项确认：
+1. Push the repository to GitHub.
+2. In repository settings, open `Pages`.
+3. Set the source to `Deploy from a branch`.
+4. Select branch `main` and folder `/ (root)`.
+5. After deployment, visit `https://steve0ne.github.io/`.
 
-1. 首屏 3 秒内可识别姓名、方向和主行动按钮。
-2. 顶部导航锚点可跳转到 ABOUT/SKILLS/PROJECTS/AWARDS/CONTACT。
-3. 邮箱和 GitHub 外链可访问。
-4. 移动端（窄屏）无文本溢出，按钮可点击。
-5. `prefers-reduced-motion` 下持续动画可降级（系统减少动态效果时页面应变静态）。
+## Maintenance Notes
+
+- This repository only tracks publishable site assets.
+- Local workflow directories such as `.codex/` and `openspec/` are ignored for public publishing.
+- Homepage content can be updated directly in `index.html`.
+- Journal content can be updated directly in `journal/index.html` and `journal/posts/*.html`.
+
+## License
+
+MIT. See [LICENSE](./LICENSE).
+
+---
+
+# Stev5 个人主页与 Journal
+
+这是一个部署到 GitHub Pages 的静态站点，用来承载 `Stev5` 的个人主页与 Journal。整体风格为暗色、高级、克制，重点展示精选项目、工程结果，以及围绕后端系统与 AI 工程实践的文章记录。
+
+## 项目说明
+
+- 技术栈：`HTML + CSS + JavaScript`
+- 首页入口：`index.html`
+- Journal 入口：`journal/index.html`
+- 发布方式：直接从仓库根目录部署到 GitHub Pages
+
+## 目录结构
+
+- `index.html`：个人主页与精选案例
+- `journal/`：Journal 索引页与文章详情页
+- `assets/css/styles.css`：共享视觉系统、布局和动效样式
+- `assets/js/script.js`：滚动显隐、导航状态、年份同步与减少动态效果支持
+- `assets/img/logos/`：首页使用的技术 logo
+- `assets/img/favicon.svg`：站点 favicon
+- `assets/img/og-cover.svg`：社交分享封面
+- `assets/site.webmanifest`：站点 manifest
+
+## 本地预览
+
+在仓库根目录执行：
+
+```bash
+python3 -m http.server 8080
+```
+
+然后在浏览器中打开 [http://localhost:8080](http://localhost:8080)。
 
 ## 发布到 GitHub Pages
 
-1. 同步站点文件到 `Steve0ne.github.io` 仓库根目录（保留 `.git`）。
-2. 提交并推送：
+1. 将仓库推送到 GitHub。
+2. 打开仓库设置中的 `Pages`。
+3. 选择 `Deploy from a branch`。
+4. 分支选择 `main`，目录选择 `/ (root)`。
+5. 等待发布完成后访问 `https://steve0ne.github.io/`。
 
-```bash
-git add -A
-git commit -m "feat: enhance homepage visuals and motion layering"
-git push origin main
-```
+## 维护说明
 
-3. 等待 GitHub Pages 发布后访问 `https://steve0ne.github.io/`。
+- 仓库只保留对外发布需要的站点资源。
+- `.codex/`、`openspec/` 等本地工作流目录已被忽略，不参与公开发布。
+- 首页内容直接维护在 `index.html`。
+- Journal 内容直接维护在 `journal/index.html` 与 `journal/posts/*.html`。
 
-## 快速回滚（发布异常）
+## 许可
 
-若新版本上线后出现严重样式或交互问题，可快速回滚：
-
-```bash
-# 查看最近提交
-git log --oneline -n 5
-
-# 回退到上一个稳定提交（示例）
-git revert <bad_commit_sha>
-git push origin main
-```
-
-如需回退多个提交，优先连续执行 `git revert` 生成回滚提交，避免改写远端历史。
+采用 MIT 许可证，详见 [LICENSE](./LICENSE)。

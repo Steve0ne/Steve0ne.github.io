@@ -1,0 +1,17 @@
+{
+  "name": "Stev5 Personal Homepage & Journal",
+  "short_name": "Stev5",
+  "description": "Personal homepage and journal on backend systems, practical AI engineering, selected work, and notes from the process.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090d",
+  "theme_color": "#07090d",
+  "icons": [
+    {
+      "src": "/assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
